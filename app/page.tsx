@@ -8,9 +8,25 @@ export default function HomePage() {
       {/* Header */}
       <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-outline-variant/10">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <span className="text-2xl font-headline font-extrabold tracking-tighter text-on-surface">
-            BrickReel
-          </span>
+          <Link href="/">
+            <span className="text-2xl font-headline font-extrabold tracking-tighter text-on-surface cursor-pointer">
+              BrickReel
+            </span>
+          </Link>
+          <nav className="hidden md:flex items-center gap-8 font-semibold text-sm">
+            <Link href="/">
+              <span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Dashboard</span>
+            </Link>
+            <Link href="/">
+              <span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Features</span>
+            </Link>
+            <Link href="/">
+              <span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">How it Works</span>
+            </Link>
+            <Link href="/pricing">
+              <span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Pricing</span>
+            </Link>
+          </nav>
           <div className="flex items-center gap-4">
             <Link href="/login">
               <button className="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface font-semibold text-sm transition-all hover:bg-surface-container-highest">
