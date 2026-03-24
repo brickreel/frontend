@@ -85,7 +85,7 @@ export default function AnalysisForm() {
           {/* Score Section */}
           <section className="text-center mb-16">
             <h1 className="text-5xl font-headline font-extrabold text-on-surface mb-4">Analysis Results</h1>
-            <p className="text-on-surface-variant text-lg mb-8">Here's what we found in your video performance</p>
+            <p className="text-on-surface-variant text-lg mb-8">Here&apos;s what we found in your video performance</p>
 
             <div className="bg-surface-container-lowest rounded-2xl p-12 mb-8">
               <div className="text-6xl font-headline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-on-tertiary-container mb-4">
@@ -193,7 +193,7 @@ export default function AnalysisForm() {
         <div className="mb-12">
           <h1 className="text-4xl font-headline font-bold text-on-surface mb-4">Analyze Your Video</h1>
           <p className="text-on-surface-variant text-lg">
-            Enter your video metrics and we'll provide actionable insights to improve performance.
+            Enter your video metrics and we&apos;ll provide actionable insights to improve performance.
           </p>
         </div>
 

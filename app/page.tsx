@@ -97,7 +97,7 @@ export default function HomePage() {
               AI-Powered Insights
             </h3>
             <p className="text-on-surface-variant">
-              Understand what's working and what's not with deep analysis of viewer behavior.
+              Understand what&apos;s working and what&apos;s not with deep analysis of viewer behavior.
             </p>
           </div>
 
