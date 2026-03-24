@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { signup } from '@/lib/auth';
 import AuthLayout from '@/components/AuthLayout';
 
 export default function SignupPage() {
@@ -14,29 +15,44 @@ export default function SignupPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setSuccess('');
+
+    // Validación de campos
+    if (!email || !password || !confirmPassword) {
+      setError('Por favor completa todos los campos');
+      return;
+    }
 
     if (password !== confirmPassword) {
-      setError('Passwords do not match');
+      setError('Las contraseñas no coinciden');
       return;
     }
 
     if (password.length < 6) {
-      setError('Password must be at least 6 characters');
+      setError('La contraseña debe tener al menos 6 caracteres');
       return;
     }
 
     setLoading(true);
 
     try {
-      // TODO: Implement Supabase signup
-      // For now, just redirect to dashboard
-      router.push('/dashboard');
+      // Llamar al endpoint de signup del backend
+      await signup(email, password, confirmPassword);
+
+      setSuccess('¡Registro exitoso! Verifica tu email para confirmar tu cuenta.');
+      
+      // Redirigir a login después de 2 segundos
+      setTimeout(() => {
+        router.push('/login');
+      }, 2000);
     } catch (err) {
-      setError('Failed to sign up. Please try again.');
+      const errorMessage = err instanceof Error ? err.message : 'Failed to sign up. Please try again.';
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -76,6 +92,12 @@ export default function SignupPage() {
         {error && (
           <div className="mb-6 p-4 bg-error-container border border-error rounded-lg text-error">
             {error}
+          </div>
+        )}
+
+        {success && (
+          <div className="mb-6 p-4 bg-green-100 border border-green-500 rounded-lg text-green-700">
+            {success}
           </div>
         )}
 

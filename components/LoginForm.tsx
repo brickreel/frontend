@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { login } from '@/lib/auth';
 
 export default function LoginForm() {
   const router = useRouter();
@@ -18,11 +19,21 @@ export default function LoginForm() {
     setLoading(true);
 
     try {
-      // TODO: Implement Supabase login
-      // For now, just redirect to dashboard
+      // Validaciones básicas
+      if (!email || !password) {
+        setError('Por favor ingresa email y contraseña');
+        setLoading(false);
+        return;
+      }
+
+      // Llamar al endpoint de login del backend
+      await login(email, password);
+
+      // Redirigir al dashboard si el login fue exitoso
       router.push('/dashboard');
     } catch (err) {
-      setError('Failed to login. Please try again.');
+      const errorMessage = err instanceof Error ? err.message : 'Login failed. Please try again.';
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
