@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { login } from '@/lib/auth';
+import { login, isAuthenticated } from '@/lib/auth';
 
 export default function LoginForm() {
   const router = useRouter();
@@ -13,23 +13,24 @@ export default function LoginForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  useEffect(() => {
+    if (isAuthenticated()) {
+      router.replace('/dashboard');
+    }
+  }, [router]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setLoading(true);
 
     try {
-      // Validaciones básicas
       if (!email || !password) {
         setError('Por favor ingresa email y contraseña');
-        setLoading(false);
         return;
       }
 
-      // Llamar al endpoint de login del backend
       await login(email, password);
-
-      // Redirigir al dashboard si el login fue exitoso
       router.push('/dashboard');
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Login failed. Please try again.';

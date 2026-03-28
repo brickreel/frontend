@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { isAuthenticated, logout, getUser, AuthUser } from '@/lib/auth';
 
 interface Analysis {
   id: string;
@@ -14,17 +16,35 @@ interface Analysis {
 }
 
 export default function DashboardComponent() {
+  const router = useRouter();
   const [analyses, setAnalyses] = useState<Analysis[]>([]);
   const [loading, setLoading] = useState(true);
   const [avgEngagement, setAvgEngagement] = useState(0);
   const [totalVideos, setTotalVideos] = useState(0);
+  const [user, setUser] = useState<AuthUser | null>(null);
+  const [loggingOut, setLoggingOut] = useState(false);
 
   useEffect(() => {
+    if (!isAuthenticated()) {
+      router.replace('/login');
+      return;
+    }
+    setUser(getUser());
+
     // TODO: Fetch analyses from API
     const mockData: Analysis[] = [];
     setAnalyses(mockData);
     setLoading(false);
-  }, []);
+  }, [router]);
+
+  const handleLogout = async () => {
+    setLoggingOut(true);
+    try {
+      await logout();
+    } finally {
+      router.replace('/login');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-surface">
@@ -49,8 +69,17 @@ export default function DashboardComponent() {
             <button className="hidden md:block px-5 py-2.5 rounded-full bg-surface-container-high text-on-surface font-semibold text-sm transition-all hover:bg-surface-container-highest">
               Settings
             </button>
-            <button className="px-5 py-2.5 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold text-sm transition-all scale-95 hover:scale-100 shadow-lg shadow-primary-container/20">
-              Logout
+            {user?.email && (
+              <span className="hidden md:block text-sm text-on-surface-variant font-medium">
+                {user.email}
+              </span>
+            )}
+            <button
+              onClick={handleLogout}
+              disabled={loggingOut}
+              className="px-5 py-2.5 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold text-sm transition-all scale-95 hover:scale-100 shadow-lg shadow-primary-container/20 disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {loggingOut ? 'Logging out...' : 'Logout'}
             </button>
           </div>
         </div>

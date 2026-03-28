@@ -90,12 +90,27 @@ export async function signup(
 }
 
 /**
- * Logout - limpiar tokens y datos del usuario
+ * Logout - llama al endpoint del backend y limpia tokens locales
  */
-export function logout(): void {
-  localStorage.removeItem(TOKEN_KEY);
-  localStorage.removeItem(REFRESH_TOKEN_KEY);
-  localStorage.removeItem(USER_KEY);
+export async function logout(): Promise<void> {
+  try {
+    const token = getToken();
+    if (token) {
+      await fetch(`${API_URL}/auth/logout`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    }
+  } catch {
+    // Si falla la llamada al servidor, igual limpiamos localmente
+  } finally {
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(REFRESH_TOKEN_KEY);
+    localStorage.removeItem(USER_KEY);
+  }
 }
 
 /**
