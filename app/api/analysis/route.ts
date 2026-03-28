@@ -6,10 +6,12 @@ export async function POST(request: NextRequest) {
 
     // Call the backend API
     const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+    const authHeader = request.headers.get('Authorization');
     const response = await fetch(`${backendUrl}/analysis`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        ...(authHeader ? { Authorization: authHeader } : {}),
       },
       body: JSON.stringify(body),
     });

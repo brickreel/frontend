@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { getToken } from '@/lib/auth';
 
 interface FormData {
   title: string;
@@ -46,9 +47,13 @@ export default function AnalysisForm() {
     setLoading(true);
 
     try {
+      const token = getToken();
       const response = await fetch('/api/analysis', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
         body: JSON.stringify(formData),
       });
 

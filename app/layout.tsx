@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Manrope, Inter } from "next/font/google";
+import Providers from "@/components/Providers";
 import "./globals.css";
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-headline" });
@@ -20,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${manrope.variable} ${inter.variable}`}>
       <body className="bg-surface font-body text-on-surface antialiased">
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

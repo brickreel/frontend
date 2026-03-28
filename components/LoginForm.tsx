@@ -4,9 +4,11 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { login, isAuthenticated } from '@/lib/auth';
+import { useAuth } from '@/context/AuthContext';
 
 export default function LoginForm() {
   const router = useRouter();
+  const { setLoggedIn } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -30,7 +32,8 @@ export default function LoginForm() {
         return;
       }
 
-      await login(email, password);
+      const result = await login(email, password);
+      setLoggedIn(result.data.user);
       router.push('/dashboard');
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Login failed. Please try again.';

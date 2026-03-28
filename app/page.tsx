@@ -1,8 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 export default function HomePage() {
+  const router = useRouter();
+  const { user, isLoggedIn, signOut } = useAuth();
+
+  const handleLogout = async () => {
+    await signOut();
+    router.push("/login");
+  };
   return (
     <div className="min-h-screen bg-surface">
       {/* Header */}
@@ -25,12 +34,31 @@ export default function HomePage() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Link href="/login" className="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface font-semibold text-sm transition-all hover:bg-surface-container-highest">
-              Login
-            </Link>
-            <Link href="/signup" className="px-6 py-2.5 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold text-sm transition-all hover:opacity-90 shadow-lg shadow-primary-container/20">
-              Sign Up
-            </Link>
+            {isLoggedIn ? (
+              <>
+                <span className="hidden md:block text-sm text-on-surface-variant font-medium">
+                  {user?.email}
+                </span>
+                <Link href="/dashboard" className="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface font-semibold text-sm transition-all hover:bg-surface-container-highest">
+                  Dashboard
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="px-6 py-2.5 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold text-sm transition-all hover:opacity-90 shadow-lg shadow-primary-container/20"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link href="/login" className="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface font-semibold text-sm transition-all hover:bg-surface-container-highest">
+                  Login
+                </Link>
+                <Link href="/signup" className="px-6 py-2.5 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold text-sm transition-all hover:opacity-90 shadow-lg shadow-primary-container/20">
+                  Sign Up
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </header>
@@ -46,9 +74,15 @@ export default function HomePage() {
           </p>
           
           <div className="flex gap-4 justify-center flex-wrap mb-12">
-            <Link href="/signup" className="px-8 py-4 bg-primary text-on-primary font-bold rounded-full hover:opacity-90 transition-all shadow-lg shadow-primary/20">
-              Start Free Analysis
-            </Link>
+            {isLoggedIn ? (
+              <Link href="/dashboard" className="px-8 py-4 bg-primary text-on-primary font-bold rounded-full hover:opacity-90 transition-all shadow-lg shadow-primary/20">
+                Go to Dashboard
+              </Link>
+            ) : (
+              <Link href="/signup" className="px-8 py-4 bg-primary text-on-primary font-bold rounded-full hover:opacity-90 transition-all shadow-lg shadow-primary/20">
+                Start Free Analysis
+              </Link>
+            )}
             <button className="px-8 py-4 border border-outline-variant text-on-surface font-bold rounded-full hover:bg-surface-container transition-all">
               Watch Demo
             </button>

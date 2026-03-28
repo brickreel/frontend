@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { isAuthenticated, logout, getUser, saveUser, authenticatedFetch, AuthUser } from '@/lib/auth';
+import { useAuth } from '@/context/AuthContext';
 
 interface Analysis {
   id: string;
@@ -17,6 +18,7 @@ interface Analysis {
 
 export default function DashboardComponent() {
   const router = useRouter();
+  const { signOut } = useAuth();
   const [analyses, setAnalyses] = useState<Analysis[]>([]);
   const [loading, setLoading] = useState(true);
   const [avgEngagement, setAvgEngagement] = useState(0);
@@ -51,7 +53,7 @@ export default function DashboardComponent() {
   const handleLogout = async () => {
     setLoggingOut(true);
     try {
-      await logout();
+      await signOut();
     } finally {
       router.replace('/login');
     }
@@ -119,13 +121,14 @@ export default function DashboardComponent() {
             </div>
 
             <div className="relative z-10">
-              <Link href="/analysis">
-                <button className="flex items-center gap-3 bg-tertiary-fixed text-on-tertiary-fixed px-8 py-4 rounded-full font-bold text-lg hover:bg-tertiary-fixed-dim transition-all active:scale-95">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                  </svg>
-                  Analyze New Video
-                </button>
+              <Link
+                href="/analysis"
+                className="inline-flex items-center gap-3 bg-tertiary-fixed text-on-tertiary-fixed px-8 py-4 rounded-full font-bold text-lg hover:bg-tertiary-fixed-dim transition-all active:scale-95"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+                Analyze New Video
               </Link>
             </div>
           </div>
@@ -197,10 +200,8 @@ export default function DashboardComponent() {
           ) : analyses.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-on-surface-variant text-lg">No analyses yet. Start by analyzing your first video!</p>
-              <Link href="/analysis">
-                <button className="mt-4 px-6 py-3 bg-primary text-on-primary font-bold rounded-full hover:opacity-90 transition-all">
-                  Analyze First Video
-                </button>
+              <Link href="/analysis" className="mt-4 inline-block px-6 py-3 bg-primary text-on-primary font-bold rounded-full hover:opacity-90 transition-all">
+                Analyze First Video
               </Link>
             </div>
           ) : (
