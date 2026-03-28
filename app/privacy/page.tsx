@@ -14,29 +14,22 @@ export default function PrivacyPage() {
             </div>
           </Link>
           <div className="hidden md:flex items-center gap-8 font-semibold text-sm tracking-tight">
-            <Link href="/">
-              <span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Dashboard</span>
+            <Link href="/dashboard" className="text-on-surface-variant hover:text-on-surface transition-colors">
+              Dashboard
             </Link>
-            <Link href="/">
-              <span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Features</span>
-            </Link>
-            <Link href="/">
-              <span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">How it Works</span>
-            </Link>
-            <Link href="/pricing">
-              <span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Pricing</span>
+            <a href="/#features" className="text-on-surface-variant hover:text-on-surface transition-colors">
+              Features
+            </a>
+            <Link href="/pricing" className="text-on-surface-variant hover:text-on-surface transition-colors">
+              Pricing
             </Link>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="/login">
-              <button className="hidden sm:block text-on-surface font-semibold text-sm px-4 py-2 hover:bg-surface-container-high rounded-lg transition-all">
-                Login
-              </button>
+            <Link href="/login" className="hidden sm:block text-on-surface font-semibold text-sm px-4 py-2 hover:bg-surface-container-high rounded-lg transition-all">
+              Login
             </Link>
-            <Link href="/signup">
-              <button className="bg-primary text-on-primary rounded-full px-6 py-2.5 text-sm font-bold hover:opacity-90 transition-all">
-                Start Analyzing
-              </button>
+            <Link href="/signup" className="bg-primary text-on-primary rounded-full px-6 py-2.5 text-sm font-bold hover:opacity-90 transition-all">
+              Start Analyzing
             </Link>
           </div>
         </nav>

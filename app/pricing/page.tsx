@@ -14,29 +14,22 @@ export default function PricingPage() {
             </span>
           </Link>
           <nav className="hidden md:flex items-center gap-8 font-semibold text-sm">
-            <Link href="/">
-              <span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Dashboard</span>
+            <Link href="/dashboard" className="text-on-surface-variant hover:text-on-surface transition-colors">
+              Dashboard
             </Link>
-            <Link href="/">
-              <span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Features</span>
-            </Link>
-            <Link href="/">
-              <span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">How it Works</span>
-            </Link>
-            <Link href="/pricing">
-              <span className="text-on-surface font-bold border-b-2 border-on-surface cursor-pointer">Pricing</span>
+            <a href="/#features" className="text-on-surface-variant hover:text-on-surface transition-colors">
+              Features
+            </a>
+            <Link href="/pricing" className="text-on-surface font-bold border-b-2 border-on-surface">
+              Pricing
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Link href="/login">
-              <button className="text-on-surface font-semibold text-sm px-4 py-2 hover:bg-surface-container-high rounded-lg transition-all">
-                Login
-              </button>
+            <Link href="/login" className="text-on-surface font-semibold text-sm px-4 py-2 hover:bg-surface-container-high rounded-lg transition-all">
+              Login
             </Link>
-            <Link href="/signup">
-              <button className="px-6 py-2.5 rounded-full bg-primary text-on-primary font-bold text-sm transition-all hover:opacity-90">
-                Start Analyzing
-              </button>
+            <Link href="/signup" className="px-6 py-2.5 rounded-full bg-primary text-on-primary font-bold text-sm transition-all hover:opacity-90">
+              Start Analyzing
             </Link>
           </div>
         </div>
@@ -95,10 +88,8 @@ export default function PricingPage() {
                   No priority support
                 </li>
               </ul>
-              <Link href="/signup">
-                <button className="w-full py-3 px-6 rounded-full font-bold text-sm bg-surface-container-high text-on-surface transition-all hover:bg-surface-container-highest">
-                  Get Started
-                </button>
+              <Link href="/signup" className="w-full py-3 px-6 rounded-full font-bold text-sm text-center bg-surface-container-high text-on-surface transition-all hover:bg-surface-container-highest">
+                Get Started
               </Link>
             </div>
 
@@ -141,10 +132,8 @@ export default function PricingPage() {
                   Custom brand watermarking
                 </li>
               </ul>
-              <Link href="/signup">
-                <button className="w-full py-4 px-6 rounded-full font-bold text-sm bg-white text-primary transition-all hover:bg-slate-100 shadow-lg">
-                  Go Professional
-                </button>
+              <Link href="/signup" className="w-full py-4 px-6 rounded-full font-bold text-sm text-center bg-white text-primary transition-all hover:bg-slate-100 shadow-lg">
+                Go Professional
               </Link>
             </div>
 
@@ -183,10 +172,8 @@ export default function PricingPage() {
                   Whitelabel reporting
                 </li>
               </ul>
-              <Link href="/contact">
-                <button className="w-full py-3 px-6 rounded-full font-bold text-sm bg-surface-container-high text-on-surface transition-all hover:bg-surface-container-highest">
-                  Contact Sales
-                </button>
+              <Link href="/contact" className="w-full py-3 px-6 rounded-full font-bold text-sm text-center bg-surface-container-high text-on-surface transition-all hover:bg-surface-container-highest">
+                Contact Sales
               </Link>
             </div>
           </div>
@@ -233,10 +220,8 @@ export default function PricingPage() {
               Ready to transform your <br /> video workflow?
             </h2>
             <div className="flex flex-col md:flex-row gap-4 justify-center relative z-10">
-              <Link href="/signup">
-                <button className="bg-tertiary-fixed text-on-tertiary-fixed px-10 py-4 rounded-full font-black text-sm tracking-widest uppercase transition-all hover:opacity-90 shadow-xl">
-                  Get Started Now
-                </button>
+              <Link href="/signup" className="bg-tertiary-fixed text-on-tertiary-fixed px-10 py-4 rounded-full font-black text-sm tracking-widest uppercase transition-all hover:opacity-90 shadow-xl">
+                Get Started Now
               </Link>
               <button className="border border-on-primary/30 text-on-primary px-10 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all">
                 Schedule a Demo

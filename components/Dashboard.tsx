@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { isAuthenticated, logout, getUser, AuthUser } from '@/lib/auth';
+import { isAuthenticated, logout, getUser, saveUser, authenticatedFetch, AuthUser } from '@/lib/auth';
 
 interface Analysis {
   id: string;
@@ -30,6 +30,17 @@ export default function DashboardComponent() {
       return;
     }
     setUser(getUser());
+
+    authenticatedFetch('/auth/me')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.data) saveUser(data.data);
+        setUser(data?.data ?? getUser());
+      })
+      .catch(() => {
+        // Token inválido — forzar logout
+        logout().then(() => router.replace('/login'));
+      });
 
     // TODO: Fetch analyses from API
     const mockData: Analysis[] = [];

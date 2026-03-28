@@ -14,29 +14,22 @@ export default function HomePage() {
             </span>
           </Link>
           <nav className="hidden md:flex items-center gap-8 font-semibold text-sm">
-            <Link href="/">
-              <span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Dashboard</span>
+            <Link href="/dashboard" className="text-on-surface-variant hover:text-on-surface transition-colors">
+              Dashboard
             </Link>
-            <Link href="/">
-              <span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Features</span>
-            </Link>
-            <Link href="/">
-              <span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">How it Works</span>
-            </Link>
-            <Link href="/pricing">
-              <span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Pricing</span>
+            <a href="#features" className="text-on-surface-variant hover:text-on-surface transition-colors">
+              Features
+            </a>
+            <Link href="/pricing" className="text-on-surface-variant hover:text-on-surface transition-colors">
+              Pricing
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Link href="/login">
-              <button className="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface font-semibold text-sm transition-all hover:bg-surface-container-highest">
-                Login
-              </button>
+            <Link href="/login" className="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface font-semibold text-sm transition-all hover:bg-surface-container-highest">
+              Login
             </Link>
-            <Link href="/signup">
-              <button className="px-6 py-2.5 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold text-sm transition-all hover:opacity-90 shadow-lg shadow-primary-container/20">
-                Sign Up
-              </button>
+            <Link href="/signup" className="px-6 py-2.5 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold text-sm transition-all hover:opacity-90 shadow-lg shadow-primary-container/20">
+              Sign Up
             </Link>
           </div>
         </div>
@@ -53,10 +46,8 @@ export default function HomePage() {
           </p>
           
           <div className="flex gap-4 justify-center flex-wrap mb-12">
-            <Link href="/signup">
-              <button className="px-8 py-4 bg-primary text-on-primary font-bold rounded-full hover:opacity-90 transition-all shadow-lg shadow-primary/20">
-                Start Free Analysis
-              </button>
+            <Link href="/signup" className="px-8 py-4 bg-primary text-on-primary font-bold rounded-full hover:opacity-90 transition-all shadow-lg shadow-primary/20">
+              Start Free Analysis
             </Link>
             <button className="px-8 py-4 border border-outline-variant text-on-surface font-bold rounded-full hover:bg-surface-container transition-all">
               Watch Demo
@@ -87,7 +78,7 @@ export default function HomePage() {
         </section>
 
         {/* Features Grid */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        <section id="features" className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           <div className="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant/10">
             <div className="h-12 w-12 bg-secondary-container rounded-lg flex items-center justify-center mb-4">
               <svg className="w-6 h-6 text-on-secondary-container" fill="currentColor" viewBox="0 0 20 20">
@@ -140,10 +131,8 @@ export default function HomePage() {
           <p className="text-on-primary/80 text-lg max-w-xl mx-auto mb-8">
             Join real estate agents who are already using BrickReel to optimize their video content.
           </p>
-          <Link href="/signup">
-            <button className="px-10 py-4 bg-tertiary-fixed text-on-tertiary-fixed font-bold rounded-full hover:bg-tertiary-fixed-dim transition-all shadow-lg">
-              Get Started Free
-            </button>
+          <Link href="/signup" className="px-10 py-4 bg-tertiary-fixed text-on-tertiary-fixed font-bold rounded-full hover:bg-tertiary-fixed-dim transition-all shadow-lg">
+            Get Started Free
           </Link>
         </section>
       </main>
