@@ -1,6 +1,8 @@
 'use client';
 
-export default function AuthLayout({ children }: { children: React.ReactNode }) {
+import type { ReactNode } from 'react';
+
+export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
     <main className="min-h-screen grid grid-cols-1 md:grid-cols-12">
       {/* Brand/Visual Side */}

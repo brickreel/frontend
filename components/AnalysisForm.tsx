@@ -57,7 +57,7 @@ export default function AnalysisForm() {
       const data = await response.json();
       setResult(data);
       setStep('results');
-    } catch (err) {
+    } catch {
       setError('Failed to analyze video. Please try again.');
     } finally {
       setLoading(false);
@@ -73,10 +73,8 @@ export default function AnalysisForm() {
             <Link href="/dashboard" className="text-xl font-headline font-extrabold tracking-tighter text-on-surface">
               BrickReel
             </Link>
-            <Link href="/dashboard">
-              <button className="px-5 py-2.5 rounded-full bg-primary text-on-primary font-semibold text-sm transition-all hover:opacity-90">
-                Back to Dashboard
-              </button>
+            <Link href="/dashboard" className="px-5 py-2.5 rounded-full bg-primary text-on-primary font-semibold text-sm transition-all hover:opacity-90">
+              Back to Dashboard
             </Link>
           </div>
         </header>
@@ -156,15 +154,11 @@ export default function AnalysisForm() {
           <section className="text-center pt-8">
             <p className="text-on-surface-variant text-lg mb-6">Ready to improve your next video?</p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link href="/analysis">
-                <button className="px-8 py-3 bg-primary text-on-primary font-bold rounded-full hover:opacity-90 transition-all">
-                  Analyze Another Video
-                </button>
+              <Link href="/analysis" className="px-8 py-3 bg-primary text-on-primary font-bold rounded-full hover:opacity-90 transition-all">
+                Analyze Another Video
               </Link>
-              <Link href="/dashboard">
-                <button className="px-8 py-3 border border-outline-variant text-on-surface font-bold rounded-full hover:bg-surface-container transition-all">
-                  View Dashboard
-                </button>
+              <Link href="/dashboard" className="px-8 py-3 border border-outline-variant text-on-surface font-bold rounded-full hover:bg-surface-container transition-all">
+                View Dashboard
               </Link>
             </div>
           </section>
@@ -181,10 +175,8 @@ export default function AnalysisForm() {
           <Link href="/dashboard" className="text-xl font-headline font-extrabold tracking-tighter text-on-surface">
             BrickReel
           </Link>
-          <Link href="/dashboard">
-            <button className="px-5 py-2.5 rounded-full bg-surface-container-high text-on-surface font-semibold text-sm transition-all hover:bg-surface-container-highest">
-              Back
-            </button>
+          <Link href="/dashboard" className="px-5 py-2.5 rounded-full bg-surface-container-high text-on-surface font-semibold text-sm transition-all hover:bg-surface-container-highest">
+            Back
           </Link>
         </div>
       </header>

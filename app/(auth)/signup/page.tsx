@@ -85,14 +85,12 @@ export default function SignupPage() {
 
         {/* Toggle */}
         <div className="flex bg-surface-container-low p-1 rounded-full mb-8">
-          <Link href="/login">
-            <button className="flex-1 py-2 text-sm font-semibold text-on-surface-variant hover:text-on-surface transition-all">
-              Login
-            </button>
+          <Link href="/login" className="flex-1 py-2 text-sm font-semibold text-center text-on-surface-variant hover:text-on-surface transition-all">
+            Login
           </Link>
-          <button className="flex-1 py-2 text-sm font-semibold rounded-full bg-surface-container-lowest text-on-surface shadow-sm transition-all">
+          <span className="flex-1 py-2 text-sm font-semibold text-center rounded-full bg-surface-container-lowest text-on-surface shadow-sm">
             Sign Up
-          </button>
+          </span>
         </div>
 
         {error && (

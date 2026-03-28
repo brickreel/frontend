@@ -60,13 +60,11 @@ export default function LoginForm() {
 
       {/* Toggle */}
       <div className="flex bg-surface-container-low p-1 rounded-full mb-8">
-        <button className="flex-1 py-2 text-sm font-semibold rounded-full bg-surface-container-lowest text-on-surface shadow-sm transition-all">
+        <span className="flex-1 py-2 text-sm font-semibold text-center rounded-full bg-surface-container-lowest text-on-surface shadow-sm">
           Login
-        </button>
-        <Link href="/signup">
-          <button className="flex-1 py-2 text-sm font-semibold text-on-surface-variant hover:text-on-surface transition-all">
-            Sign Up
-          </button>
+        </span>
+        <Link href="/signup" className="flex-1 py-2 text-sm font-semibold text-center text-on-surface-variant hover:text-on-surface transition-all">
+          Sign Up
         </Link>
       </div>
 
