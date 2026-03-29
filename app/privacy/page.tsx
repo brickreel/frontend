@@ -195,18 +195,10 @@ export default function PrivacyPage() {
             BrickReel AI
           </div>
           <div className="flex flex-wrap justify-center gap-8 font-body text-sm text-on-surface-variant">
-            <Link href="/privacy">
-              <span className="text-on-surface transition-all cursor-pointer">Privacy Policy</span>
-            </Link>
-            <Link href="/terms">
-              <span className="hover:underline transition-all cursor-pointer">Terms of Service</span>
-            </Link>
-            <Link href="/contact">
-              <span className="hover:underline transition-all cursor-pointer">Contact Us</span>
-            </Link>
-            <Link href="/">
-              <span className="hover:underline transition-all cursor-pointer">Documentation</span>
-            </Link>
+            <Link href="/privacy" className="text-on-surface transition-all">Privacy Policy</Link>
+            <Link href="/terms" className="hover:underline transition-all">Terms of Service</Link>
+            <Link href="/contact" className="hover:underline transition-all">Contact Us</Link>
+            <Link href="/" className="hover:underline transition-all">Documentation</Link>
           </div>
           <div className="font-body text-sm text-on-surface-variant opacity-80 hover:opacity-100 transition-opacity">
             © 2024 BrickReel AI. All rights reserved.

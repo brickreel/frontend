@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import MarketingNav from "@/components/MarketingNav";
 
 export default function PricingPage() {
@@ -208,18 +209,10 @@ export default function PricingPage() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-lg font-headline font-black tracking-tighter text-on-surface">BrickReel</div>
           <nav className="flex gap-8 font-body text-sm text-on-surface-variant">
-            <Link href="/privacy">
-              <span className="hover:underline transition-all opacity-80 hover:opacity-100 cursor-pointer">Privacy Policy</span>
-            </Link>
-            <Link href="/terms">
-              <span className="hover:underline transition-all opacity-80 hover:opacity-100 cursor-pointer">Terms of Service</span>
-            </Link>
-            <Link href="/contact">
-              <span className="hover:underline transition-all opacity-80 hover:opacity-100 cursor-pointer">Contact Us</span>
-            </Link>
-            <Link href="/">
-              <span className="hover:underline transition-all opacity-80 hover:opacity-100 cursor-pointer">Documentation</span>
-            </Link>
+            <Link href="/privacy" className="hover:underline transition-all opacity-80 hover:opacity-100">Privacy Policy</Link>
+            <Link href="/terms" className="hover:underline transition-all opacity-80 hover:opacity-100">Terms of Service</Link>
+            <Link href="/contact" className="hover:underline transition-all opacity-80 hover:opacity-100">Contact Us</Link>
+            <Link href="/" className="hover:underline transition-all opacity-80 hover:opacity-100">Documentation</Link>
           </nav>
           <p className="font-body text-sm text-on-surface-variant opacity-80">© 2024 BrickReel AI. All rights reserved.</p>
         </div>

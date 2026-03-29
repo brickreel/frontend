@@ -1,5 +1,6 @@
 'use client';
 
+import type { FormEvent, ChangeEvent } from 'react';
 import { useState } from 'react';
 import Link from 'next/link';
 import { getToken } from '@/lib/auth';
@@ -33,7 +34,7 @@ export default function AnalysisForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -41,7 +42,7 @@ export default function AnalysisForm() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError('');
     setLoading(true);

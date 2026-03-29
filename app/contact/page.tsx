@@ -1,14 +1,15 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useState } from "react";
+import type { FormEvent } from 'react';
+import { useState } from 'react';
+import Link from 'next/link';
 import MarketingNav from "@/components/MarketingNav";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
-
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     // TODO: integrate with contact API endpoint
     setSubmitted(true);
