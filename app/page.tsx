@@ -1,67 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import MarketingNav from "@/components/MarketingNav";
 
 export default function HomePage() {
-  const router = useRouter();
-  const { user, isLoggedIn, signOut } = useAuth();
+  const { isLoggedIn } = useAuth();
 
-  const handleLogout = async () => {
-    await signOut();
-    router.push("/login");
-  };
   return (
     <div className="min-h-screen bg-surface">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-outline-variant/10">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/">
-            <span className="text-2xl font-headline font-extrabold tracking-tighter text-on-surface cursor-pointer">
-              BrickReel
-            </span>
-          </Link>
-          <nav className="hidden md:flex items-center gap-8 font-semibold text-sm">
-            <Link href="/dashboard" className="text-on-surface-variant hover:text-on-surface transition-colors">
-              Dashboard
-            </Link>
-            <a href="#features" className="text-on-surface-variant hover:text-on-surface transition-colors">
-              Features
-            </a>
-            <Link href="/pricing" className="text-on-surface-variant hover:text-on-surface transition-colors">
-              Pricing
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            {isLoggedIn ? (
-              <>
-                <span className="hidden md:block text-sm text-on-surface-variant font-medium">
-                  {user?.email}
-                </span>
-                <Link href="/dashboard" className="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface font-semibold text-sm transition-all hover:bg-surface-container-highest">
-                  Dashboard
-                </Link>
-                <button
-                  onClick={handleLogout}
-                  className="px-6 py-2.5 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold text-sm transition-all hover:opacity-90 shadow-lg shadow-primary-container/20"
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <Link href="/login" className="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface font-semibold text-sm transition-all hover:bg-surface-container-highest">
-                  Login
-                </Link>
-                <Link href="/signup" className="px-6 py-2.5 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold text-sm transition-all hover:opacity-90 shadow-lg shadow-primary-container/20">
-                  Sign Up
-                </Link>
-              </>
-            )}
-          </div>
-        </div>
-      </header>
+      <MarketingNav activeLink="home" />
 
       <main className="max-w-7xl mx-auto px-6 py-20">
         {/* Hero Section */}
@@ -180,7 +128,7 @@ export default function HomePage() {
             <Link href="/terms"><span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Terms</span></Link>
             <Link href="/contact"><span className="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Contact</span></Link>
           </div>
-          <p className="text-on-surface-variant text-sm">© 2024 BrickReel. All rights reserved.</p>
+          <p className="text-on-surface-variant text-sm">© 2026 BrickReel. All rights reserved.</p>
         </div>
       </footer>
     </div>

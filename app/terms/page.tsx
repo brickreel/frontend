@@ -1,27 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import MarketingNav from "@/components/MarketingNav";
 
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-surface">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-outline-variant/10">
-        <nav className="flex justify-between items-center max-w-7xl mx-auto px-6 h-20">
-          <Link href="/" className="text-xl font-headline font-extrabold tracking-tighter text-on-surface">
-            BrickReel
-          </Link>
-          <div className="hidden md:flex items-center gap-8 font-semibold text-sm tracking-tight">
-            <Link href="/dashboard" className="text-on-surface-variant hover:text-on-surface transition-colors">Dashboard</Link>
-            <a href="/#features" className="text-on-surface-variant hover:text-on-surface transition-colors">Features</a>
-            <Link href="/pricing" className="text-on-surface-variant hover:text-on-surface transition-colors">Pricing</Link>
-          </div>
-          <div className="flex items-center gap-4">
-            <Link href="/login" className="hidden sm:block text-on-surface font-semibold text-sm px-4 py-2 hover:bg-surface-container-high rounded-lg transition-all">Login</Link>
-            <Link href="/signup" className="bg-primary text-on-primary rounded-full px-6 py-2.5 text-sm font-bold hover:opacity-90 transition-all">Start Analyzing</Link>
-          </div>
-        </nav>
-      </header>
+      <MarketingNav />
 
       <main className="max-w-4xl mx-auto px-6 py-20">
         <div className="mb-12">
