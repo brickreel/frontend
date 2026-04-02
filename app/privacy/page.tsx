@@ -56,7 +56,7 @@ export default function PrivacyPage() {
             <article className="scroll-mt-32" id="introduction">
               <h2 className="font-headline font-bold text-3xl mb-8 tracking-tight">1. Introduction</h2>
               <div className="space-y-4 text-on-surface-variant leading-[1.8] font-body">
-                <p>BrickReel ("we," "our," or "us") provides a specialized AI platform designed to analyze real estate cinematography. This Privacy Policy describes how we collect, use, and protect the data you entrust to us when using our services.</p>
+                <p>BrickReel (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) provides a specialized AI platform designed to analyze real estate cinematography. This Privacy Policy describes how we collect, use, and protect the data you entrust to us when using our services.</p>
                 <p>By using BrickReel, you acknowledge the processing practices described herein. We treat all architectural visual data as proprietary and confidential information of the user.</p>
               </div>
             </article>
@@ -120,7 +120,7 @@ export default function PrivacyPage() {
 
             <article className="scroll-mt-32" id="cookies">
               <h2 className="font-headline font-bold text-3xl mb-8 tracking-tight">4. Cookies & Tracking</h2>
-              <p className="text-on-surface-variant leading-[1.8]">We use "Cookies" and similar tracking technologies to improve user experience. Essential cookies are required for session management and security. Analytics cookies help us understand platform usage to optimize rendering performance.</p>
+              <p className="text-on-surface-variant leading-[1.8]">We use &quot;Cookies&quot; and similar tracking technologies to improve user experience. Essential cookies are required for session management and security. Analytics cookies help us understand platform usage to optimize rendering performance.</p>
               <div className="mt-8 p-1 bg-surface-container-high rounded-full w-fit">
                 <button className="px-6 py-2 rounded-full bg-surface-container-lowest text-sm font-bold shadow-sm hover:bg-surface-container transition-all">
                   Manage Preferences
