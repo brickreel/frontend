@@ -32,9 +32,9 @@ export default function MarketingNav({ activeLink }: MarketingNavProps) {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 font-semibold text-sm">
-          <a href="/#features" className={linkClass('features')}>
+          <Link href="/#features" className={linkClass('features')}>
             Features
-          </a>
+          </Link>
           <Link href="/pricing" className={linkClass('pricing')}>
             Pricing
           </Link>
